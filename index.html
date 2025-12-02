@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phalguni Raju | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="logo">PR</div>
+      <nav class="nav-links">
+        <button data-scroll="#about">About</button>
+        <button data-scroll="#skills">Skills</button>
+        <button data-scroll="#projects">Projects</button>
+        <button data-scroll="#certs">Certifications</button>
+        <button data-scroll="#hobbies">Hobbies</button>
+        <button data-scroll="#contact">Contact</button>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero fade-section">
+      <div class="container hero-inner">
+        <div>
+          <p class="hero-tag">3rd Year CSE · AIML Enthusiast</p>
+          <h1>Hi, I'm <span class="accent">Phalguni Raju</span></h1>
+          <p class="hero-sub">
+            I build data-driven and AI-powered solutions as a Computer Science
+            Engineering student specializing in Artificial Intelligence and Machine
+            Learning. I enjoy simulations, analytics, and solving real problems
+            with code.
+          </p>
+          <div class="hero-actions">
+            <button class="btn primary" data-scroll="#projects">
+              View Projects
+            </button>
+            <button class="btn ghost" data-scroll="#contact">
+              Contact Me
+            </button>
+          </div>
+          <p class="hero-highlight">
+            Actively looking for internships in
+            <span class="accent-soft">AI/ML & Software Development</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">About Me</p>
+        <h2 class="section-title">Who I am</h2>
+        <p>
+          I'm a 3rd year Computer Science Engineering student at Alliance
+          University, specializing in Artificial Intelligence and Machine
+          Learning. I love turning data into insights and building tools that
+          actually help people.
+        </p>
+        <ul class="bullet-list">
+          <li>Focused on AIML, data analytics, and simulations.</li>
+          <li>
+            Completed Azure AI-900 and multiple NPTEL courses in Machine
+            Learning and Database Systems.
+          </li>
+          <li>
+            Interested in internships where I can learn from real-world
+            projects and contribute to strong engineering teams.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS (dynamic) -->
+    <section id="skills" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">Skills</p>
+        <h2 class="section-title">Technologies I work with</h2>
+        <div id="skills-grid" class="skills-grid">
+          <!-- Filled dynamically by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (dynamic + filters + expandable) -->
+    <section id="projects" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">Projects</p>
+        <h2 class="section-title">Things I've built</h2>
+
+        <div id="project-filters" class="filter-row">
+          <!-- Filter buttons injected by script.js -->
+        </div>
+
+        <div id="projects-grid" class="grid">
+          <!-- Project cards injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS (dynamic) -->
+    <section id="certs" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">Certifications</p>
+        <h2 class="section-title">What I've been learning</h2>
+        <div id="certs-grid" class="grid">
+          <!-- Certification cards injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES (fun colorful cards) -->
+    <section id="hobbies" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">Beyond Engineering</p>
+        <h2 class="section-title">What I enjoy in my free time</h2>
+        <p class="section-sub">
+          A quick look at the things that keep me creative, active, and curious.
+        </p>
+        <div id="hobbies-grid" class="grid hobbies-grid">
+          <!-- Hobby cards injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (pretty + real email sending) -->
+    <section id="contact" class="section fade-section">
+      <div class="container contact-layout">
+        <div class="contact-text">
+          <p class="section-tag">Contact</p>
+          <h2 class="section-title">Let's work together</h2>
+          <p>
+            Have an internship, project, or collaboration in mind? I’d love to
+            hear from you. Share a few details and I’ll get back to you.
+          </p>
+          <div class="contact-details">
+            <p><strong>Email:</strong> <a href="mailto:Phalguniraju18@gmail.com">Phalguniraju18@gmail.com</a></p>
+            <div class="socials">
+              <a href="https://github.com/PhalguniRaju" target="_blank" rel="noreferrer">GitHub</a>
+              <!-- Add your actual LinkedIn URL -->
+              <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <!-- This form uses FormSubmit to send messages to your email -->
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/Phalguniraju18@gmail.com"
+            method="POST"
+          >
+            <!-- FormSubmit options -->
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="box" />
+            <input type="hidden" name="_subject" value="New message from your portfolio" />
+
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Tell me a bit about what you're looking for..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn primary full-width">
+              Send Message ✉️
+            </button>
+            <p class="contact-hint">
+              This will be sent directly to my email.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Phalguni Raju
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
