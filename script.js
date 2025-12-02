@@ -74,22 +74,22 @@ const hobbies = [
     key: "classical",
     emoji: "🩰",
     title: "Classical Dancing",
-    sub: "Trained in classical dance forms that blend rhythm, expression, and discipline.",
-    softSkill: "Teaches stage confidence, commitment, and attention to detail."
+    sub: "Classical dance keeps me grounded and creative, and has been a part of my life for years.",
+    softSkill: "It’s taught me discipline, grace under pressure, and how to express ideas without words."
   },
   {
     key: "badminton",
     emoji: "🏸",
     title: "Badminton",
-    sub: "Regularly play badminton to stay active and competitive.",
-    softSkill: "Helps with quick decision making, focus, and teamwork."
+    sub: "On most good days you’ll find me on a badminton court instead of a chair.",
+    softSkill: "Fast rallies sharpen my reflexes, focus, and sense of teamwork."
   },
   {
     key: "chess",
     emoji: "♟️",
     title: "Occasional Chess",
-    sub: "Enjoy casual games of chess when I get the time.",
-    softSkill: "Strengthens strategic thinking, patience, and pattern recognition."
+    sub: "I’m not a pro, but I enjoy slow chess games with friends or online.",
+    softSkill: "Chess helps me think a few moves ahead and be patient with complex problems."
   }
 ];
 
@@ -326,7 +326,7 @@ function renderHobbies() {
 
 function setupSmoothScroll() {
   const clickable = document.querySelectorAll(
-    '[data-scroll], .nav-links button, .hero-actions .btn'
+    "[data-scroll], .nav-links button, .hero-actions .btn"
   );
 
   clickable.forEach((el) => {
