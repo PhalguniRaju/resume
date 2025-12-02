@@ -1,613 +1,227 @@
-:root {
-  --bg: #020617;
-  --bg-elevated: #0f172a;
-  --accent: #6366f1;
-  --accent2: #f97316;
-  --accent-soft: rgba(99, 102, 241, 0.2);
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --border-subtle: rgba(148, 163, 184, 0.22);
-  --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.8);
-}
-
-/* LIGHT THEME OVERRIDES */
-html[data-theme="light"] {
-  --bg: #f3f4f6;
-  --bg-elevated: #ffffff;
-  --accent: #6366f1;
-  --accent2: #f97316;
-  --accent-soft: rgba(99, 102, 241, 0.1);
-  --text: #111827;
-  --muted: #4b5563;
-  --border-subtle: rgba(209, 213, 219, 0.9);
-  --shadow-soft: 0 18px 30px rgba(15, 23, 42, 0.12);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
-
-/* NAV */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(18px);
-  background: rgba(15, 23, 42, 0.85);
-}
-
-html[data-theme="light"] .nav {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
-
-.logo {
-  font-family: "Poppins", system-ui;
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  background: var(--accent-soft);
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links button {
-  border: none;
-  background: transparent;
-  color: var(--muted);
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 0.3rem 0.6rem;
-}
-
-.nav-links button:hover {
-  color: var(--accent);
-}
-
-.theme-toggle {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1.15rem;
-}
-
-/* HERO */
-.hero {
-  padding: 5rem 0 4rem;
-  background:
-    radial-gradient(circle at top, rgba(99, 102, 241, 0.35), transparent 60%),
-    radial-gradient(circle at bottom, rgba(56, 189, 248, 0.25), transparent 55%),
-    var(--bg);
-}
-
-html[data-theme="light"] .hero {
-  background:
-    radial-gradient(circle at top, rgba(129, 140, 248, 0.28), transparent 60%),
-    radial-gradient(circle at bottom, rgba(52, 211, 153, 0.22), transparent 55%),
-    var(--bg);
-}
-
-.hero-inner {
-  display: flex;
-  align-items: center;
-  min-height: 60vh;
-}
-
-.hero-tag {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin-bottom: 0.8rem;
-}
-
-.hero h1 {
-  font-family: "Poppins", system-ui;
-  font-size: 2.4rem;
-  margin: 0 0 0.75rem;
-}
-
-.hero-sub {
-  max-width: 540px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.accent {
-  color: var(--accent);
-}
-
-.hero-actions {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.7rem 1.4rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  font-size: 0.95rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease,
-    border 0.2s ease;
-}
-
-.btn.primary {
-  background: var(--accent);
-  color: white;
-}
-
-.btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-soft);
-}
-
-.btn.ghost {
-  background: transparent;
-  border-color: var(--accent-soft);
-  color: var(--text);
-}
-
-.btn.ghost:hover {
-  background: rgba(15, 23, 42, 0.9);
-}
-
-html[data-theme="light"] .btn.ghost:hover {
-  background: rgba(243, 244, 246, 0.9);
-}
-
-.btn.full-width {
-  width: 100%;
-}
-
-.hero-highlight {
-  margin-top: 1.2rem;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.accent-soft {
-  color: var(--accent2);
-  font-weight: 600;
-}
-
-/* SECTIONS */
-.section {
-  padding: 4rem 0;
-}
-
-.section-tag {
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.25rem;
-}
-
-.section-title {
-  font-family: "Poppins", system-ui;
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-}
-
-.section-sub {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  color: var(--muted);
-}
-
-.bullet-list {
-  padding-left: 1.2rem;
-  color: var(--muted);
-}
-
-/* SKILLS */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.skills-group {
-  background: var(--bg-elevated);
-  border-radius: 1rem;
-  padding: 1.3rem;
-  border: 1px solid var(--border-subtle);
-}
-
-.skills-group h3 {
-  margin-top: 0;
-  margin-bottom: 0.7rem;
-}
-
-.pill-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.pill {
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-html[data-theme="light"] .pill {
-  background: #f9fafb;
-}
-
-/* GRID & CARDS */
-.grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  margin-top: 1.5rem;
-}
-
-.card {
-  background: var(--bg-elevated);
-  border-radius: 1.1rem;
-  padding: 1.4rem;
-  border: 1px solid var(--border-subtle);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border 0.25s ease;
-}
-
-html[data-theme="light"] .card {
-  background: #ffffff;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-soft);
-  border-color: rgba(99, 102, 241, 0.7);
-}
-
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.card p {
-  margin: 0.25rem 0;
-  color: var(--muted);
-}
-
-/* PROJECTS */
-.project-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.badge {
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  font-size: 0.75rem;
-}
-
-.project-short {
-  color: var(--muted);
-}
-
-.project-long {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.pill-small {
-  font-size: 0.8rem;
-  padding: 0.2rem 0.7rem;
-}
-
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.3rem;
-}
-
-.project-actions {
-  margin-top: 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.btn.small {
-  padding: 0.45rem 0.9rem;
-  font-size: 0.8rem;
-}
-
-.project-links {
-  display: flex;
-  gap: 0.7rem;
-}
-
-.project-links a {
-  font-size: 0.8rem;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-/* FILTERS */
-.filter-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.filter-btn {
-  border-radius: 999px;
-  border: 1px solid var(--border-subtle);
-  padding: 0.35rem 0.9rem;
-  background: transparent;
-  cursor: pointer;
-  font-size: 0.85rem;
-  color: var(--muted);
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border 0.2s ease,
-    transform 0.2s ease;
-}
-
-.filter-btn:hover {
-  transform: translateY(-1px);
-}
-
-.filter-btn.active {
-  background: var(--accent);
-  color: #ffffff;
-  border-color: var(--accent);
-}
-
-/* CERTIFICATIONS */
-.cert-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-
-.cert-org {
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.cert-year {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.cert-desc {
-  font-size: 0.9rem;
-}
-
-/* HOBBIES */
-.hobbies-grid .hobby-card {
-  position: relative;
-  overflow: hidden;
-  color: #ffffff;
-  padding: 1.6rem 1.4rem;
-  border-radius: 1.3rem;
-  border: none;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-  transform-origin: center;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.hobby-emoji {
-  font-size: 1.9rem;
-  margin-bottom: 0.4rem;
-}
-
-.hobby-title {
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-
-.hobby-sub {
-  font-size: 0.9rem;
-  opacity: 0.95;
-  margin-bottom: 0.35rem;
-}
-
-.hobby-soft-skill {
-  font-size: 0.8rem;
-  opacity: 0.9;
-}
-
-.hobbies-grid .hobby-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 26px 55px rgba(15, 23, 42, 0.95);
-}
-
-/* Different gradients per hobby */
-.hobby-classical {
-  background: radial-gradient(circle at top left, #f97316, #7c2d12 55%);
-}
-
-.hobby-badminton {
-  background: radial-gradient(circle at top left, #22c55e, #14532d 55%);
-}
-
-.hobby-chess {
-  background: radial-gradient(circle at top left, #6366f1, #1e1b4b 55%);
-}
-
-/* CONTACT */
-.contact-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-.contact-text p {
-  color: var(--muted);
-}
-
-.contact-details p {
-  margin: 0.25rem 0;
-}
-
-.socials {
-  margin-top: 0.8rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.socials a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.contact-form-card {
-  background: var(--bg-elevated);
-  border-radius: 1.2rem;
-  padding: 1.6rem;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
-}
-
-html[data-theme="light"] .contact-form-card {
-  background: #ffffff;
-  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.1);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.form-field label {
-  font-size: 0.9rem;
-}
-
-.form-field input,
-.form-field textarea {
-  border-radius: 0.8rem;
-  border: 1px solid var(--border-subtle);
-  padding: 0.6rem 0.8rem;
-  font-family: inherit;
-  font-size: 0.9rem;
-  background: transparent;
-  color: var(--text);
-  outline: none;
-}
-
-html[data-theme="light"] .form-field input,
-html[data-theme="light"] .form-field textarea {
-  background: #f9fafb;
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-  border-color: var(--accent);
-}
-
-.contact-hint {
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 0.2rem;
-}
-
-/* FOOTER */
-.footer {
-  padding: 2rem 0;
-  border-top: 1px solid rgba(15, 23, 42, 0.9);
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-/* ANIMATIONS: fade in on scroll */
-.fade-section {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .nav-inner {
-    gap: 0.75rem;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero-inner {
-    min-height: auto;
-  }
-
-  .contact-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phalguni Raju | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="logo">PR</div>
+      <nav class="nav-links">
+        <button data-scroll="#about">About</button>
+        <button data-scroll="#skills">Skills</button>
+        <button data-scroll="#projects">Projects</button>
+        <button data-scroll="#certs">Certifications</button>
+        <button data-scroll="#hobbies">Hobbies</button>
+        <button data-scroll="#contact">Contact</button>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero fade-section">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-tag">3rd Year CSE</p>
+          <h1>Hi, I'm <span class="accent">Phalguni Raju</span></h1>
+          <p class="hero-sub">
+            I'm a Computer Science Engineering student specializing in AI &amp; ML,
+            somewhere between clean code and classical dance steps. I enjoy building
+            small projects that actually work, experimenting with data, and learning
+            new tools that make me a better engineer every week.
+          </p>
+          <div class="hero-actions">
+            <button class="btn primary" data-scroll="#projects">
+              View Projects
+            </button>
+            <button class="btn ghost" data-scroll="#contact">
+              Contact Me
+            </button>
+          </div>
+          <p class="hero-highlight">
+            Actively looking for internships in
+            <span class="accent-soft">AI/ML & Software Development</span>
+          </p>
+        </div>
+
+        <div class="hero-photo-wrapper">
+          <!-- Make sure profile.jpg exists in the same folder as index.html -->
+          <img
+            src="profile.jpg"
+            alt="Portrait of Phalguni Raju"
+            class="hero-photo"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">About Me</p>
+        <h2 class="section-title">Who I am</h2>
+        <p>
+          I'm a 3rd year Computer Science Engineering student at Alliance University,
+          specializing in Artificial Intelligence and Machine Learning. I enjoy
+          understanding how things work under the hood, whether it's an algorithm,
+          a simulation model, or a simple everyday app.
+        </p>
+        <ul class="bullet-list">
+          <li>Currently exploring AI/ML, data analytics, and simulation-based optimization.</li>
+          <li>Completed Azure AI-900 and NPTEL courses in Machine Learning and DBMS.</li>
+          <li>Comfortable working with C, Python, SQL, and Excel for real problem solving.</li>
+          <li>Actively looking for internships where I can learn fast and contribute to meaningful projects.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS (dynamic) -->
+    <section id="skills" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">Skills</p>
+        <h2 class="section-title">Technologies I work with</h2>
+        <div id="skills-grid" class="skills-grid">
+          <!-- Filled dynamically by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (dynamic + filters + expandable) -->
+    <section id="projects" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">Projects</p>
+        <h2 class="section-title">Things I've built</h2>
+
+        <div id="project-filters" class="filter-row">
+          <!-- Filter buttons injected by script.js -->
+        </div>
+
+        <div id="projects-grid" class="grid">
+          <!-- Project cards injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS (dynamic) -->
+    <section id="certs" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">Certifications</p>
+        <h2 class="section-title">What I've been learning</h2>
+        <div id="certs-grid" class="grid">
+          <!-- Certification cards injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES (fun colorful cards) -->
+    <section id="hobbies" class="section fade-section">
+      <div class="container">
+        <p class="section-tag">Beyond Engineering</p>
+        <h2 class="section-title">What I enjoy in my free time</h2>
+        <p class="section-sub">
+          A quick look at the things that keep me creative, active, and curious.
+        </p>
+        <div id="hobbies-grid" class="grid hobbies-grid">
+          <!-- Hobby cards injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (pretty + real email sending) -->
+    <section id="contact" class="section fade-section">
+      <div class="container contact-layout">
+        <div class="contact-text">
+          <p class="section-tag">Contact</p>
+          <h2 class="section-title">Let's work together</h2>
+          <p>
+            Have an internship, project, or collaboration in mind? I’d love to
+            hear from you. Share a few details and I’ll get back to you.
+          </p>
+          <div class="contact-details">
+            <p><strong>Email:</strong> <a href="mailto:Phalguniraju18@gmail.com">Phalguniraju18@gmail.com</a></p>
+            <div class="socials">
+              <a href="https://github.com/PhalguniRaju" target="_blank" rel="noreferrer">GitHub</a>
+              <!-- TODO: replace with your actual LinkedIn URL -->
+              <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <!-- This form uses FormSubmit to send messages to your email -->
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/Phalguniraju18@gmail.com"
+            method="POST"
+          >
+            <!-- FormSubmit options -->
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="box" />
+            <input type="hidden" name="_subject" value="New message from your portfolio" />
+
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Tell me a bit about what you're looking for..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn primary full-width">
+              Send Message ✉️
+            </button>
+            <p class="contact-hint">
+              This will be sent directly to my email.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Phalguni Raju
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
