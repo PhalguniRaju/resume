@@ -2,7 +2,7 @@
 
 const skills = {
   programming: ["C", "C++", "Python", "Java (basics)"],
-  aiMl: ["Machine Learning basics", "Azure AI-900", "NPTEL ML"],
+  aiMl: ["Machine Learning basics", "Azure AI-900", "NPTEL Machine Learning"],
   tools: ["DBMS / SQL", "Excel (Data Viz)", "Git & GitHub", "Windows", "Ubuntu", "Canva"]
 };
 
@@ -11,9 +11,9 @@ const projects = [
     id: 1,
     title: "Race Car Optimization using Simulation",
     category: "AI-ML",
-    short: "Simulation-based optimization to improve race car performance using ML analysis.",
+    short: "Simulation-based optimization to improve race car performance using ML-style analysis.",
     long:
-      "Built a simulation pipeline to model race car performance under different configurations. Applied ML-inspired analysis to evaluate parameter changes, compare outcomes, and suggest more optimal setups.",
+      "Built a simulation pipeline to model race car performance under different configurations. Applied data-driven analysis to evaluate parameter changes, compare outcomes, and suggest more optimal setups.",
     tech: ["Python", "Simulation", "Machine Learning"],
     github: "",
     demo: ""
@@ -53,13 +53,13 @@ const certifications = [
     title: "NPTEL – Introduction to Machine Learning",
     org: "NPTEL",
     year: "2024",
-    desc: "Supervised/unsupervised learning, model evaluation, core ML algorithms."
+    desc: "Supervised/unsupervised learning, model evaluation, and core ML algorithms."
   },
   {
     title: "NPTEL – Database Management Systems",
     org: "NPTEL",
     year: "2023",
-    desc: "Relational models, SQL queries, normalization, and transactions."
+    desc: "Relational models, SQL queries, normalization, and transaction concepts."
   },
   {
     title: "Deloitte – Data Analytics Job Simulation",
@@ -75,7 +75,7 @@ const hobbies = [
     emoji: "🩰",
     title: "Classical Dancing",
     sub: "Classical dance keeps me grounded and creative, and has been a part of my life for years.",
-    softSkill: "It’s taught me discipline, grace under pressure, and how to express ideas without words."
+    softSkill: "It’s taught me discipline, stage confidence, and how to express ideas without words."
   },
   {
     key: "badminton",
@@ -131,7 +131,6 @@ function renderSkills() {
 }
 
 let activeFilter = "All";
-let expandedProjectId = null;
 
 function renderProjectFilters() {
   const container = document.getElementById("project-filters");
@@ -168,33 +167,40 @@ function renderProjects() {
 
   list.forEach((project) => {
     const card = document.createElement("article");
-    card.className = "card project-card";
+    card.className = "project-card";
 
-    const header = document.createElement("div");
-    header.className = "project-header";
+    const inner = document.createElement("div");
+    inner.className = "project-inner";
 
-    const title = document.createElement("h3");
-    title.textContent = project.title;
+    // FRONT side
+    const front = document.createElement("div");
+    front.className = "project-front";
+
+    const h3 = document.createElement("h3");
+    h3.textContent = project.title;
 
     const badge = document.createElement("span");
     badge.className = "badge";
     badge.textContent = project.category;
 
-    header.appendChild(title);
-    header.appendChild(badge);
-    card.appendChild(header);
-
     const shortP = document.createElement("p");
     shortP.className = "project-short";
     shortP.textContent = project.short;
-    card.appendChild(shortP);
 
-    if (expandedProjectId === project.id) {
-      const longP = document.createElement("p");
-      longP.className = "project-long";
-      longP.textContent = project.long;
-      card.appendChild(longP);
-    }
+    front.appendChild(h3);
+    front.appendChild(badge);
+    front.appendChild(shortP);
+
+    // BACK side
+    const back = document.createElement("div");
+    back.className = "project-back";
+
+    const h3Back = document.createElement("h3");
+    h3Back.textContent = project.title;
+
+    const longP = document.createElement("p");
+    longP.className = "project-long";
+    longP.textContent = project.long;
 
     const techDiv = document.createElement("div");
     techDiv.className = "tech-stack";
@@ -204,45 +210,25 @@ function renderProjects() {
       span.textContent = t;
       techDiv.appendChild(span);
     });
-    card.appendChild(techDiv);
 
-    const actions = document.createElement("div");
-    actions.className = "project-actions";
+    const hint = document.createElement("p");
+    hint.style.fontSize = "0.8rem";
+    hint.style.opacity = "0.8";
+    hint.textContent = "Click to flip back";
 
-    const toggleBtn = document.createElement("button");
-    toggleBtn.className = "btn ghost small";
-    toggleBtn.textContent =
-      expandedProjectId === project.id ? "Show less" : "Show details";
-    toggleBtn.addEventListener("click", () => {
-      expandedProjectId =
-        expandedProjectId === project.id ? null : project.id;
-      renderProjects();
+    back.appendChild(h3Back);
+    back.appendChild(longP);
+    back.appendChild(techDiv);
+    back.appendChild(hint);
+
+    inner.appendChild(front);
+    inner.appendChild(back);
+    card.appendChild(inner);
+
+    // Flip interaction
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
     });
-    actions.appendChild(toggleBtn);
-
-    const links = document.createElement("div");
-    links.className = "project-links";
-
-    if (project.github) {
-      const aGit = document.createElement("a");
-      aGit.href = project.github;
-      aGit.target = "_blank";
-      aGit.rel = "noreferrer";
-      aGit.textContent = "GitHub ↗";
-      links.appendChild(aGit);
-    }
-
-    if (project.demo) {
-      const aDemo = document.createElement("a");
-      aDemo.href = project.demo;
-      aDemo.target = "_blank";
-      aDemo.rel = "noreferrer";
-      aDemo.textContent = "Demo ↗";
-      links.appendChild(aDemo);
-    }
-
-    actions.appendChild(links);
-    card.appendChild(actions);
 
     grid.appendChild(card);
   });
@@ -325,9 +311,7 @@ function renderHobbies() {
 // ------------ SCROLL + THEME + MISC ---------------
 
 function setupSmoothScroll() {
-  const clickable = document.querySelectorAll(
-    "[data-scroll], .nav-links button, .hero-actions .btn"
-  );
+  const clickable = document.querySelectorAll("[data-scroll]");
 
   clickable.forEach((el) => {
     el.addEventListener("click", (e) => {
@@ -362,7 +346,6 @@ function setupThemeToggle() {
   const btn = document.getElementById("themeToggle");
   const root = document.documentElement;
 
-  // Load stored theme
   const stored = localStorage.getItem("theme");
   if (stored === "light" || stored === "dark") {
     root.setAttribute("data-theme", stored);
