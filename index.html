@@ -129,7 +129,7 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+       <!-- CONTACT -->
     <section id="contact" class="section fade-section">
       <div class="container contact-layout">
         <div class="contact-text">
@@ -147,7 +147,7 @@
               <a href="https://github.com/Phalguniraju" target="_blank" rel="noreferrer">
                 GitHub
               </a>
-              <a href="https://www.linkedin.com/m/in/phalguni-raju/" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/phalguni-raju/" target="_blank" rel="noreferrer">
                 LinkedIn
               </a>
             </div>
@@ -156,13 +156,11 @@
 
         <div class="contact-form-card">
           <form
+            id="contact-form"
             class="contact-form"
-            action="https://formsubmit.co/Phalguniraju18@gmail.com"
+            action="https://formspree.io/f/mjknoekg"
             method="POST"
           >
-            <!-- FormSubmit options -->
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="box" />
             <input type="hidden" name="_subject" value="New message from your portfolio" />
 
             <div class="form-field">
@@ -180,7 +178,7 @@
               <label for="email">Email</label>
               <input
                 id="email"
-                name="email"
+                name="_replyto"
                 type="email"
                 placeholder="you@example.com"
                 required
@@ -204,18 +202,17 @@
             <p class="contact-hint">
               This will be sent directly to my email.
             </p>
+            <p id="form-status" class="contact-hint" style="min-height: 1.2em;"></p>
           </form>
         </div>
       </div>
     </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      © <span id="year"></span> Phalguni Raju
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <footer class="footer">
+      <div class="container">
+        © <span id="year"></span> Phalguni Raju 
+      </div> 
+    </footer> 
+    <script src="script.js"></script> 
+</body> 
 </html>
+
