@@ -380,4 +380,34 @@ document.addEventListener("DOMContentLoaded", () => {
   setupScrollAnimations();
   setupThemeToggle();
   setYear();
+  // ---- Contact form handler ----
+  const form = document.getElementById("contact-form");
+  const statusEl = document.getElementById("form-status");
+
+  if (form && statusEl) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // prevent full page redirect
+
+      statusEl.textContent = "Sending...";
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+
+        if (res.ok) {
+          statusEl.textContent = "✅ Message sent! I'll get back to you soon.";
+          form.reset();
+        } else {
+          statusEl.textContent =
+            "❌ Something went wrong. Please try again or email me directly.";
+        }
+      } catch (err) {
+        statusEl.textContent =
+          "❌ Network error. Please check your connection or email me directly.";
+      }
+    });
+  }
 });
